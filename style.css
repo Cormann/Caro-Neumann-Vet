@@ -1425,3 +1425,12 @@ font[color] { color: inherit !important; }
     object-position: center 20%;
   }
 }
+
+/* Coming soon placeholder */
+.coming-soon-block {
+  padding: 2.5rem;
+  border: 1.5px dashed rgba(45,74,48,0.2);
+  border-radius: var(--radius-md);
+  text-align: center;
+  background: rgba(45,74,48,0.03);
+}
