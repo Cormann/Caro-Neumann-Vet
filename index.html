@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Carolina Neumann MVSc — freelance veterinary surgeon specialising in small animal soft tissue, thoracic, laparoscopic and endoscopic surgery. Available to operate at referring practices." />
+  <meta name="description" content="Carolina Neumann — cirujana veterinaria freelance especializada en cirugía mínimamente invasiva, tejidos blandos, torácica, laparoscópica y endoscópica en pequeños animales." />
   <meta name="robots" content="index, follow" />
 
   <!-- Canonical & hreflang -->
@@ -15,17 +15,17 @@
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
-  <meta property="og:title"       content="Carolina Neumann MVSc · Veterinary Surgeon" />
-  <meta property="og:description" content="Freelance veterinary surgeon specialising in minimally invasive and soft tissue procedures for small animals." />
+  <meta property="og:title"       content="Carolina Neumann — Cirujana Veterinaria Freelance" />
+  <meta property="og:description" content="Cirujana veterinaria freelance especializada en cirugía mínimamente invasiva de tejidos blandos, torácica, laparoscópica y endoscópica." />
   <meta property="og:url"         content="https://www.neumannvet.es/" />
-  <meta property="og:image"       content="https://www.neumannvet.es/og-image.png" />
+  <meta property="og:image"       content="https://www.neumannvet.es/img/carolina.jpg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Carolina Neumann MVSc · Veterinary Surgeon" />
-  <meta name="twitter:description" content="Freelance veterinary surgeon specialising in minimally invasive and soft tissue procedures for small animals." />
+  <meta name="twitter:title"       content="Carolina Neumann — Cirujana Veterinaria Freelance" />
+  <meta name="twitter:description" content="Cirujana veterinaria freelance especializada en cirugía mínimamente invasiva." />
 
-  <title>Carolina Neumann MVSc — Freelance Veterinary Surgeon</title>
+  <title>Carolina Neumann — Cirujana Veterinaria Freelance</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,34 +33,48 @@
 </head>
 <body>
 
+  <!-- Hidden Google Translate element -->
+  <div id="google_translate_element" style="display:none" aria-hidden="true"></div>
+
   <!-- ── Navigation ──────────────────────────────────────── -->
   <header class="nav" role="banner">
     <div class="container nav__inner">
-      <a href="index.html" class="nav__brand" aria-label="Carolina Neumann — Home">
+      <a href="index.html" class="nav__brand" aria-label="Carolina Neumann — Inicio">
         C. Neumann <span>MVSc</span>
       </a>
 
-      <nav aria-label="Primary navigation">
+      <nav aria-label="Navegación principal">
         <ul class="nav__links" role="list">
-          <li><a href="index.html"      class="nav__link" aria-current="page">Home</a></li>
-          <li><a href="services.html"   class="nav__link">Services</a></li>
-          <li><a href="references.html" class="nav__link">About &amp; References</a></li>
-          <li><a href="contact.html"    class="nav__link nav__cta">Make a Referral</a></li>
+          <li><a href="index.html"      class="nav__link" aria-current="page">Inicio</a></li>
+          <li><a href="services.html"   class="nav__link">Servicios</a></li>
+          <li><a href="references.html" class="nav__link">Sobre mí</a></li>
+          <li><a href="contact.html"    class="nav__link nav__cta">Hacer una Derivación</a></li>
         </ul>
       </nav>
 
-      <button class="nav__hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+      <div class="lang-switcher" role="group" aria-label="Seleccionar idioma">
+        <button class="lang-btn" data-lang="es" aria-pressed="true">ES</button>
+        <button class="lang-btn" data-lang="ca" aria-pressed="false">CA</button>
+        <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+
+      <button class="nav__hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
   <!-- Mobile menu -->
-  <nav id="mobileMenu" class="nav__mobile" aria-label="Mobile navigation">
-    <a href="index.html"      class="nav__link">Home</a>
-    <a href="services.html"   class="nav__link">Services</a>
-    <a href="references.html" class="nav__link">About &amp; References</a>
-    <a href="contact.html"    class="nav__link">Make a Referral</a>
+  <nav id="mobileMenu" class="nav__mobile" aria-label="Navegación móvil">
+    <a href="index.html"      class="nav__link">Inicio</a>
+    <a href="services.html"   class="nav__link">Servicios</a>
+    <a href="references.html" class="nav__link">Sobre mí</a>
+    <a href="contact.html"    class="nav__link">Hacer una Derivación</a>
+    <div class="lang-switcher" role="group" aria-label="Seleccionar idioma">
+      <button class="lang-btn" data-lang="es" aria-pressed="true">ES</button>
+      <button class="lang-btn" data-lang="ca" aria-pressed="false">CA</button>
+      <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
   </nav>
 
   <main id="main-content">
@@ -68,53 +82,52 @@
     <!-- ── Hero ──────────────────────────────────────────── -->
     <section class="hero" aria-labelledby="heroTitle">
       <div class="container hero__inner">
-        <div class="hero__kicker">Freelance Veterinary Surgeon</div>
+        <div class="hero__kicker">Cirujana Veterinaria Freelance</div>
         <h1 class="hero__title" id="heroTitle">
           Carolina Neumann
-          <em>MVSc MRCVS</em>
+          <em>MVSc</em>
         </h1>
         <p class="hero__tagline">
-          Advanced small animal surgery — minimally invasive, precisely executed,
-          and delivered directly to your practice.
+          Cirugía avanzada en pequeños animales — mínimamente invasiva,
+          ejecutada con precisión y realizada directamente en tu clínica.
         </p>
         <div class="hero__actions">
-          <a href="contact.html" class="btn btn--outline-white">Make a Referral</a>
-          <a href="services.html" class="btn btn--outline-white" style="background:transparent; border-color:rgba(255,255,255,0.35);">View Services</a>
+          <a href="contact.html" class="btn btn--outline-white">Hacer una Derivación</a>
+          <a href="services.html" class="btn btn--outline-white" style="background:transparent; border-color:rgba(255,255,255,0.35);">Ver Servicios</a>
         </div>
       </div>
-
       <div class="hero__scroll" aria-hidden="true">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-        Scroll
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        Deslizar
       </div>
     </section>
 
-    <!-- ── Introduction ──────────────────────────────────── -->
+    <!-- ── Introducción ──────────────────────────────────── -->
     <section class="section reveal" aria-labelledby="introTitle">
       <div class="container grid-2" style="align-items:center; gap:4rem;">
         <div>
-          <span class="section-label">Who I Am</span>
-          <h2 id="introTitle">A surgical specialist who comes to you</h2>
+          <span class="section-label">Quién Soy</span>
+          <h2 id="introTitle">Una especialista quirúrgica que viene a ti</h2>
         </div>
         <div class="stack">
           <p class="lead">
-            Carolina Neumann is a board-eligible veterinary surgeon with over a decade of
-            advanced surgical training across university referral centres and specialist
-            practices in Europe.
+            Carolina Neumann es cirujana veterinaria con formación avanzada en cirugía
+            de tejidos blandos y cirugía mínimamente invasiva, con experiencia en centros
+            de referencia y hospitales veterinarios de Argentina y España.
           </p>
           <p class="lead">
-            Specialising in soft tissue, thoracic, laparoscopic and endoscopic procedures,
-            Carolina works on a freelance basis — travelling to referring practices to
-            deliver specialist surgical care without the overhead of a referral centre.
+            Especializada en laparoscopia, endoscopia, cirugía torácica y de tejidos blandos,
+            Carolina trabaja de forma autónoma — desplazándose a las clínicas y hospitales
+            remitentes para ofrecer atención quirúrgica especializada sin los costes de un
+            centro de referencia.
           </p>
           <p class="lead">
-            Her approach prioritises minimally invasive technique, rapid patient recovery
-            and close collaboration with the primary care team throughout every case.
+            Su enfoque prioriza la técnica mínimamente invasiva, la recuperación rápida del
+            paciente y la estrecha colaboración con el equipo de la clínica anfitriona en
+            cada caso.
           </p>
           <div class="mt-sm">
-            <a href="references.html" class="btn btn--outline">Meet Carolina &rarr;</a>
+            <a href="references.html" class="btn btn--outline">Conoce a Carolina &rarr;</a>
           </div>
         </div>
       </div>
@@ -122,92 +135,64 @@
 
     <hr class="divider" />
 
-    <!-- ── Areas of Expertise ────────────────────────────── -->
+    <!-- ── Especialidades ────────────────────────────────── -->
     <section class="section section--alt reveal" id="expertise" aria-labelledby="expertiseTitle">
       <div class="container">
         <div class="section-header text-center">
-          <span class="section-label">Areas of Expertise</span>
-          <h2 id="expertiseTitle">Surgical specialisms</h2>
-          <p>Advanced procedures performed with precision across four core disciplines.</p>
+          <span class="section-label">Áreas de Especialización</span>
+          <h2 id="expertiseTitle">Especialidades quirúrgicas</h2>
+          <p>Procedimientos avanzados realizados con precisión en cuatro disciplinas fundamentales.</p>
         </div>
 
         <div class="grid-4">
 
           <div class="card reveal reveal-delay-1">
             <div class="card__icon" aria-hidden="true">
-              <!-- Scalpel icon -->
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M20 4L8.5 15.5M8.5 15.5L4 20M8.5 15.5L5 12M15 5l3 3"/>
-              </svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4L8.5 15.5M8.5 15.5L4 20M8.5 15.5L5 12M15 5l3 3"/></svg>
             </div>
-            <h3>Soft Tissue Surgery</h3>
-            <p>
-              Comprehensive management of GI, hepatic, splenic, urogenital and oncological
-              cases using refined open and laparoscopic approaches.
-            </p>
+            <h3>Cirugía de Tejidos Blandos</h3>
+            <p>Manejo integral de casos gastrointestinales, hepáticos, esplénicos, urogenitales y oncológicos mediante técnicas abiertas y laparoscópicas.</p>
           </div>
 
           <div class="card reveal reveal-delay-2">
             <div class="card__icon" aria-hidden="true">
-              <!-- Lungs / thorax icon -->
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 5v14M8 7C6 7 4 9 4 12s1 5 2 6M16 7c2 0 4 2 4 5s-1 5-2 6"/>
-              </svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M8 7C6 7 4 9 4 12s1 5 2 6M16 7c2 0 4 2 4 5s-1 5-2 6"/></svg>
             </div>
-            <h3>Thoracic Surgery</h3>
-            <p>
-              Lung lobectomy, pericardectomy and pleural disease management — delivered with
-              the careful technique that chest surgery demands.
-            </p>
+            <h3>Cirugía Torácica</h3>
+            <p>Lobectomía pulmonar, pericardectomía y tratamiento de enfermedades pleurales con la técnica cuidadosa que exige la cirugía torácica.</p>
           </div>
 
           <div class="card reveal reveal-delay-3">
             <div class="card__icon" aria-hidden="true">
-              <!-- Camera / laparoscope icon -->
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M3 12h3M18 12h3M12 3v3M12 18v3"/>
-                <path d="M6.3 6.3l2.1 2.1M15.6 15.6l2.1 2.1M15.6 8.4l2.1-2.1M6.3 17.7l2.1-2.1"/>
-              </svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M3 12h3M18 12h3M12 3v3M12 18v3"/><path d="M6.3 6.3l2.1 2.1M15.6 15.6l2.1 2.1M15.6 8.4l2.1-2.1M6.3 17.7l2.1-2.1"/></svg>
             </div>
-            <h3>Laparoscopic Surgery</h3>
-            <p>
-              Minimally invasive access for ovariectomy, liver biopsy, prophylactic gastropexy
-              and cryptorchid castration — reducing post-operative morbidity.
-            </p>
+            <h3>Cirugía Laparoscópica</h3>
+            <p>Acceso mínimamente invasivo para ovariectomía, biopsia hepática, gastropexia profiláctica y criptorquidectomía, reduciendo la morbilidad postoperatoria.</p>
           </div>
 
           <div class="card reveal reveal-delay-4">
             <div class="card__icon" aria-hidden="true">
-              <!-- Scope icon -->
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="9" cy="9" r="5"/>
-                <path d="M13.5 13.5L20 20"/>
-                <circle cx="9" cy="9" r="2"/>
-              </svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9" r="5"/><path d="M13.5 13.5L20 20"/><circle cx="9" cy="9" r="2"/></svg>
             </div>
-            <h3>Endoscopy</h3>
-            <p>
-              Upper GI, bronchoscopy, rhinoscopy, cystoscopy and foreign body retrieval —
-              diagnostic and interventional procedures with minimal invasiveness.
-            </p>
+            <h3>Endoscopia</h3>
+            <p>GI alto, broncoscopia, rinoscopia, cistoscopia y extracción de cuerpos extraños — procedimientos diagnósticos e intervencionistas con mínima invasividad.</p>
           </div>
 
         </div>
 
         <div class="mt-lg text-center">
-          <a href="services.html" class="btn btn--primary">Explore all services &rarr;</a>
+          <a href="services.html" class="btn btn--primary">Explorar todos los servicios &rarr;</a>
         </div>
       </div>
     </section>
 
-    <!-- ── Why Refer ──────────────────────────────────────── -->
+    <!-- ── Por qué derivar ───────────────────────────────── -->
     <section class="section reveal" id="why-refer" aria-labelledby="whyTitle">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">Why Refer to Carolina</span>
-          <h2 id="whyTitle">Specialist care built around your practice</h2>
-          <p>A referral to Carolina is seamless, collaborative and centred on the best outcome for your patient.</p>
+          <span class="section-label">Por Qué Derivar a Carolina</span>
+          <h2 id="whyTitle">Atención especializada adaptada a tu clínica</h2>
+          <p>Derivar a Carolina es sencillo, colaborativo y centrado en el mejor resultado para tu paciente.</p>
         </div>
 
         <div class="trust-grid" role="list">
@@ -215,54 +200,48 @@
           <div class="trust-item reveal" role="listitem">
             <div class="trust-item__num" aria-hidden="true">01</div>
             <div class="trust-item__body">
-              <h4>Minimally Invasive First</h4>
-              <p>Wherever clinically appropriate, laparoscopic and endoscopic techniques are
-              prioritised to reduce pain, hospital time and recovery burden for your patient.</p>
+              <h4>Prioridad Mínimamente Invasiva</h4>
+              <p>Siempre que sea clínicamente adecuado, se priorizan las técnicas laparoscópicas y endoscópicas para reducir el dolor, el tiempo de hospitalización y la carga de recuperación.</p>
             </div>
           </div>
 
           <div class="trust-item reveal reveal-delay-1" role="listitem">
             <div class="trust-item__num" aria-hidden="true">02</div>
             <div class="trust-item__body">
-              <h4>Your Practice, Your Patient</h4>
-              <p>Carolina operates at your premises using your team — no referral centre
-              transfer needed. The patient stays in familiar, trusted hands.</p>
+              <h4>Tu Clínica, Tu Paciente</h4>
+              <p>Carolina opera en tus instalaciones con tu equipo — sin necesidad de traslado a un centro de referencia. El paciente permanece en manos conocidas y de confianza.</p>
             </div>
           </div>
 
           <div class="trust-item reveal reveal-delay-2" role="listitem">
             <div class="trust-item__num" aria-hidden="true">03</div>
             <div class="trust-item__body">
-              <h4>Collaborative Approach</h4>
-              <p>Every case involves thorough case discussion, clear pre-operative planning and
-              a detailed written surgical report for your records and continuing care.</p>
+              <h4>Enfoque Colaborativo</h4>
+              <p>Cada caso incluye una discusión exhaustiva, planificación preoperatoria clara y un informe quirúrgico detallado para tus registros y la continuidad de la atención.</p>
             </div>
           </div>
 
           <div class="trust-item reveal reveal-delay-3" role="listitem">
             <div class="trust-item__num" aria-hidden="true">04</div>
             <div class="trust-item__body">
-              <h4>Rapid Recovery Focus</h4>
-              <p>Enhanced recovery protocols and careful analgesia planning minimise
-              post-operative discomfort and shorten hospitalisation times.</p>
+              <h4>Recuperación Rápida</h4>
+              <p>Los protocolos de recuperación mejorada y la planificación cuidadosa de la analgesia minimizan el malestar postoperatorio y acortan los tiempos de hospitalización.</p>
             </div>
           </div>
 
           <div class="trust-item reveal" role="listitem">
             <div class="trust-item__num" aria-hidden="true">05</div>
             <div class="trust-item__body">
-              <h4>Transparent Communication</h4>
-              <p>Owners are kept fully informed throughout. Clear consent discussions and
-              honest prognosis form the foundation of every surgical plan.</p>
+              <h4>Comunicación Transparente</h4>
+              <p>Los propietarios están plenamente informados en todo momento. Las conversaciones claras sobre el consentimiento y un pronóstico honesto son la base de cada plan quirúrgico.</p>
             </div>
           </div>
 
           <div class="trust-item reveal reveal-delay-1" role="listitem">
             <div class="trust-item__num" aria-hidden="true">06</div>
             <div class="trust-item__body">
-              <h4>Flexible Availability</h4>
-              <p>Available across the region for both planned elective procedures and urgent
-              surgical cases — contact Carolina to discuss scheduling.</p>
+              <h4>Disponibilidad Flexible</h4>
+              <p>Disponible en toda la región para procedimientos electivos planificados y casos urgentes — contacta a Carolina para hablar sobre la programación.</p>
             </div>
           </div>
 
@@ -270,16 +249,16 @@
       </div>
     </section>
 
-    <!-- ── CTA Banner ─────────────────────────────────────── -->
+    <!-- ── CTA ───────────────────────────────────────────── -->
     <section class="section section--dark reveal" aria-labelledby="ctaTitle">
       <div class="container text-center">
-        <span class="section-label" style="color:rgba(255,255,255,0.5);">Get in Touch</span>
-        <h2 id="ctaTitle" style="margin-bottom:1rem;">Ready to discuss a referral?</h2>
+        <span class="section-label" style="color:rgba(255,255,255,0.5);">Contactar</span>
+        <h2 id="ctaTitle" style="margin-bottom:1rem;">¿Lista para hablar sobre una derivación?</h2>
         <p class="lead" style="color:rgba(255,255,255,0.7); margin-inline:auto; margin-bottom:2rem;">
-          Whether you have an urgent case or want to discuss upcoming surgical needs,
-          Carolina is happy to talk through the options.
+          Tanto si tienes un caso urgente como si quieres comentar necesidades quirúrgicas próximas,
+          Carolina estará encantada de valorar las opciones contigo.
         </p>
-        <a href="contact.html" class="btn btn--outline-white">Make a Referral &rarr;</a>
+        <a href="contact.html" class="btn btn--outline-white">Hacer una Derivación &rarr;</a>
       </div>
     </section>
 
@@ -293,62 +272,62 @@
         <div>
           <div class="footer__brand">C. Neumann <span>MVSc</span></div>
           <p class="footer__tagline">
-            Freelance veterinary surgeon specialising in soft tissue, thoracic,
-            laparoscopic and endoscopic surgery for small animals.
+            Cirujana veterinaria freelance especializada en cirugía de tejidos blandos,
+            torácica, laparoscópica y endoscópica en pequeños animales.
           </p>
         </div>
 
         <div>
-          <div class="footer__heading">Navigation</div>
+          <div class="footer__heading">Navegación</div>
           <ul class="footer__links" role="list">
-            <li><a href="index.html"      class="footer__link">Home</a></li>
-            <li><a href="services.html"   class="footer__link">Services</a></li>
-            <li><a href="references.html" class="footer__link">About &amp; References</a></li>
-            <li><a href="contact.html"    class="footer__link">Contact</a></li>
+            <li><a href="index.html"      class="footer__link">Inicio</a></li>
+            <li><a href="services.html"   class="footer__link">Servicios</a></li>
+            <li><a href="references.html" class="footer__link">Sobre mí</a></li>
+            <li><a href="contact.html"    class="footer__link">Contacto</a></li>
           </ul>
         </div>
 
         <div>
-          <div class="footer__heading">Contact</div>
+          <div class="footer__heading">Contacto</div>
           <a href="mailto:caneumann84@gmail.com" class="footer__email">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
             caneumann84@gmail.com
           </a>
           <p class="footer__tagline" style="font-size:0.82rem;">
-            Available to operate at referring practices across the region.
+            Disponible para operar en clínicas remitentes de toda la región.
           </p>
         </div>
 
         <div>
-          <div class="footer__heading">Privacy &amp; Data</div>
+          <div class="footer__heading">Privacidad y Datos</div>
           <p class="footer__gdpr">
-            Contact form data (name, email, practice, phone, message) is processed by
-            Carolina Neumann solely to respond to referral enquiries and is not shared
-            with third parties. You have the right to access, rectify or request erasure
-            of your data. Contact
-            <a href="mailto:caneumann84@gmail.com">caneumann84@gmail.com</a>
-            for any data requests.
+            Los datos del formulario de contacto se procesan únicamente para responder
+            a consultas de derivación y no se comparten con terceros. Tienes derecho a
+            acceder, rectificar o solicitar la eliminación de tus datos. Escríbenos a
+            <a href="mailto:caneumann84@gmail.com">caneumann84@gmail.com</a>.
           </p>
         </div>
 
       </div>
 
       <div class="footer__bottom">
-        <p>&copy; 2025 Carolina Neumann. All rights reserved.</p>
+        <p>&copy; 2025 Carolina Neumann. Todos los derechos reservados.</p>
         <p class="footer__disclaimer">
-          Carolina Neumann operates as a freelance surgical consultant. All surgical
-          procedures are carried out in accordance with relevant veterinary professional standards.
+          Carolina Neumann actúa como consultora quirúrgica independiente. Todos los procedimientos
+          quirúrgicos se llevan a cabo de acuerdo con las normas profesionales veterinarias aplicables.
         </p>
       </div>
     </div>
   </footer>
 
   <!-- ── Cookie Banner ──────────────────────────────────────── -->
-  <div class="cookie-banner" role="region" aria-label="Cookie notice" id="cookieBanner">
-    <p>This site uses no tracking cookies. No personal data is collected during browsing.</p>
-    <button class="cookie-banner__btn" aria-label="Dismiss cookie notice">Got it</button>
+  <div class="cookie-banner" role="region" aria-label="Aviso de cookies" id="cookieBanner">
+    <p>Este sitio no utiliza cookies de seguimiento. No se recopilan datos personales durante la navegación.</p>
+    <button class="cookie-banner__btn" aria-label="Cerrar aviso de cookies">De acuerdo</button>
   </div>
 
+  <!-- Google Translate -->
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
   <script src="main.js" defer></script>
 </body>
 </html>

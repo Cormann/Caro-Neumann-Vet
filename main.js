@@ -4,14 +4,67 @@
 
 'use strict';
 
+/* ── Google Translate Init (called by GT script) ─────────── */
+window.googleTranslateElementInit = function () {
+  new window.google.translate.TranslateElement(
+    {
+      pageLanguage: 'es',
+      includedLanguages: 'ca,en',
+      autoDisplay: false,
+    },
+    'google_translate_element'
+  );
+};
+
+/* ── Language Switcher ────────────────────────────────────── */
+function getGoogCookieLang() {
+  const match = document.cookie.match(/(?:^|;)\s*googtrans=\/es\/([a-z]{2})/);
+  return match ? match[1] : 'es';
+}
+
+function setGoogTranslate(lang) {
+  // Clear old cookie first
+  const clearVal = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+  document.cookie = clearVal;
+  document.cookie = clearVal + '; domain=' + location.hostname;
+  document.cookie = clearVal + '; domain=.' + location.hostname;
+
+  if (lang !== 'es') {
+    const val = '/es/' + lang;
+    document.cookie = 'googtrans=' + val + '; path=/';
+    document.cookie = 'googtrans=' + val + '; path=/; domain=.' + location.hostname;
+  }
+}
+
+function markActiveLangBtn(lang) {
+  document.querySelectorAll('.lang-btn').forEach(function (btn) {
+    const isActive = btn.dataset.lang === lang;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-pressed', String(isActive));
+  });
+}
+
+function initLangSwitcher() {
+  const currentLang = getGoogCookieLang();
+  markActiveLangBtn(currentLang);
+
+  document.querySelectorAll('.lang-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const lang = btn.dataset.lang;
+      setGoogTranslate(lang);
+      location.reload();
+    });
+  });
+}
+
 /* ── Scroll Reveal ────────────────────────────────────────── */
 function initScrollReveal() {
   const elements = document.querySelectorAll('.reveal');
   if (!elements.length) return;
 
   const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
+    function (entries) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
           observer.unobserve(entry.target);
@@ -21,18 +74,16 @@ function initScrollReveal() {
     { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
   );
 
-  elements.forEach((el) => observer.observe(el));
+  elements.forEach(function (el) { observer.observe(el); });
 }
 
 /* ── Sticky Nav Shadow ────────────────────────────────────── */
 function initNavScroll() {
   const nav = document.querySelector('.nav');
   if (!nav) return;
-
-  const handler = () => {
+  const handler = function () {
     nav.classList.toggle('scrolled', window.scrollY > 10);
   };
-
   window.addEventListener('scroll', handler, { passive: true });
   handler();
 }
@@ -43,25 +94,22 @@ function initMobileNav() {
   const mobileMenu = document.querySelector('.nav__mobile');
   if (!hamburger || !mobileMenu) return;
 
-  const toggle = (open) => {
+  const toggle = function (open) {
     hamburger.classList.toggle('open', open);
     mobileMenu.classList.toggle('open', open);
     hamburger.setAttribute('aria-expanded', String(open));
     document.body.style.overflow = open ? 'hidden' : '';
   };
 
-  hamburger.addEventListener('click', () => {
-    const isOpen = hamburger.classList.contains('open');
-    toggle(!isOpen);
+  hamburger.addEventListener('click', function () {
+    toggle(!hamburger.classList.contains('open'));
   });
 
-  // Close on mobile link click
-  mobileMenu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => toggle(false));
+  mobileMenu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () { toggle(false); });
   });
 
-  // Close on Escape
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') toggle(false);
   });
 }
@@ -71,11 +119,14 @@ function initActiveNavLink() {
   const links = document.querySelectorAll('.nav__link:not(.nav__cta)');
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 
-  links.forEach((link) => {
+  links.forEach(function (link) {
     const href = link.getAttribute('href');
     if (!href) return;
     const linkFile = href.split('/').pop();
-    if (linkFile === currentPath || (currentPath === '' && linkFile === 'index.html')) {
+    if (
+      linkFile === currentPath ||
+      (currentPath === '' && linkFile === 'index.html')
+    ) {
       link.classList.add('active');
     }
   });
@@ -92,7 +143,7 @@ function initCookieBanner() {
     return;
   }
 
-  btn.addEventListener('click', () => {
+  btn.addEventListener('click', function () {
     banner.classList.add('hidden');
     localStorage.setItem('cookieDismissed', '1');
   });
@@ -106,29 +157,38 @@ function initContactForm() {
   const successMsg = document.getElementById('formSuccess');
 
   const rules = {
-    name:    { required: true, label: 'Your name' },
-    email:   { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, label: 'A valid email address' },
-    practice:{ required: true, label: 'Practice name' },
-    referral:{ required: true, notDefault: true, label: 'Type of referral' },
-    message: { required: true, minLen: 10, label: 'A message' },
-    gdpr:    { required: true, checkbox: true, label: 'GDPR consent' },
+    name:     { required: true },
+    email:    { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
+    practice: { required: true },
+    referral: { required: true, notDefault: true },
+    message:  { required: true, minLen: 10 },
+    gdpr:     { required: true, checkbox: true },
+  };
+
+  const msgs = {
+    name:     'El nombre es obligatorio.',
+    email:    'Introduce una dirección de correo electrónico válida.',
+    practice: 'El nombre de la clínica es obligatorio.',
+    referral: 'Selecciona el tipo de derivación.',
+    message:  'Por favor, escribe un mensaje más detallado.',
+    gdpr:     'Debes confirmar tu consentimiento para continuar.',
   };
 
   function validateField(id, rule, value, checked) {
-    const group = form.querySelector(`[data-field="${id}"]`);
+    const group = form.querySelector('[data-field="' + id + '"]');
     const errEl = group ? group.querySelector('.form__error') : null;
     let msg = '';
 
     if (rule.checkbox) {
-      if (!checked) msg = 'Please confirm your consent to continue.';
+      if (!checked) msg = msgs[id];
     } else if (rule.required && !value.trim()) {
-      msg = `${rule.label} is required.`;
+      msg = msgs[id];
     } else if (rule.notDefault && value === '') {
-      msg = `Please select a referral type.`;
+      msg = msgs[id];
     } else if (rule.pattern && value.trim() && !rule.pattern.test(value.trim())) {
-      msg = `${rule.label} is required.`;
+      msg = msgs[id];
     } else if (rule.minLen && value.trim().length < rule.minLen) {
-      msg = `Please provide a more detailed message.`;
+      msg = msgs[id];
     }
 
     if (group) group.classList.toggle('has-error', !!msg);
@@ -136,40 +196,40 @@ function initContactForm() {
     return !msg;
   }
 
-  // Real-time validation on blur
-  Object.keys(rules).forEach((id) => {
+  Object.keys(rules).forEach(function (id) {
     const el = form.elements[id];
     if (!el) return;
-    el.addEventListener('blur', () => {
+    el.addEventListener('blur', function () {
       validateField(id, rules[id], el.value || '', el.checked || false);
     });
-    el.addEventListener('input', () => {
-      const group = form.querySelector(`[data-field="${id}"]`);
+    el.addEventListener('input', function () {
+      const group = form.querySelector('[data-field="' + id + '"]');
       if (group && group.classList.contains('has-error')) {
         validateField(id, rules[id], el.value || '', el.checked || false);
       }
     });
   });
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
     let valid = true;
 
-    Object.keys(rules).forEach((id) => {
+    Object.keys(rules).forEach(function (id) {
       const el = form.elements[id];
       if (!el) return;
-      const ok = validateField(id, rules[id], el.value || '', el.checked || false);
-      if (!ok) valid = false;
+      if (!validateField(id, rules[id], el.value || '', el.checked || false)) {
+        valid = false;
+      }
     });
 
     if (!valid) {
-      // Focus first error field
-      const firstError = form.querySelector('.has-error input, .has-error select, .has-error textarea');
+      const firstError = form.querySelector(
+        '.has-error input, .has-error select, .has-error textarea'
+      );
       if (firstError) firstError.focus();
       return;
     }
 
-    // Success — hide form, show confirmation
     form.style.display = 'none';
     if (successMsg) {
       successMsg.style.display = 'block';
@@ -178,26 +238,33 @@ function initContactForm() {
   });
 }
 
-/* ── Smooth anchor scrolling (for same-page links) ─────────── */
+/* ── Smooth Anchor Scrolling ──────────────────────────────── */
 function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', (e) => {
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
       const target = document.querySelector(anchor.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
-      const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'), 10) || 70;
-      const top = target.getBoundingClientRect().top + window.scrollY - navH - 12;
-      window.scrollTo({ top, behavior: 'smooth' });
+      const navH =
+        parseInt(
+          getComputedStyle(document.documentElement).getPropertyValue('--nav-h'),
+          10
+        ) || 70;
+      window.scrollTo({
+        top: target.getBoundingClientRect().top + window.scrollY - navH - 12,
+        behavior: 'smooth',
+      });
     });
   });
 }
 
 /* ── Init ─────────────────────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
   initScrollReveal();
   initNavScroll();
   initMobileNav();
   initActiveNavLink();
+  initLangSwitcher();
   initCookieBanner();
   initContactForm();
   initSmoothScroll();
