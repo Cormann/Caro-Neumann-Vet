@@ -30,6 +30,77 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "VeterinaryOrganization",
+        "@id": "https://www.neumannvet.es/#organization",
+        "name": "Carolina Neumann — Cirujana Veterinaria",
+        "url": "https://www.neumannvet.es",
+        "email": "caneumann84@gmail.com",
+        "image": "https://www.neumannvet.es/img/carolina.jpg",
+        "logo": "https://www.neumannvet.es/img/carolina.jpg",
+        "description": "Servicios quirúrgicos veterinarios freelance especializados en cirugía mínimamente invasiva, laparoscopia, endoscopia y cirugía de tejidos blandos para pequeños animales en Barcelona y área metropolitana.",
+        "areaServed": [
+          { "@type": "City", "name": "Barcelona" },
+          { "@type": "AdministrativeArea", "name": "Catalunya" }
+        ],
+        "founder": { "@id": "https://www.neumannvet.es/#carolina" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.neumannvet.es/#carolina",
+        "name": "Carolina Neumann",
+        "jobTitle": "Cirujana Veterinaria Freelance",
+        "description": "Cirujana veterinaria especializada en cirugía mínimamente invasiva, laparoscopia, endoscopia y cirugía de tejidos blandos en pequeños animales.",
+        "image": "https://www.neumannvet.es/img/carolina.jpg",
+        "email": "caneumann84@gmail.com",
+        "url": "https://www.neumannvet.es",
+        "worksFor": { "@id": "https://www.neumannvet.es/#organization" },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "MVSc — Máster en Ciencias Veterinarias"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certificate",
+            "name": "GPCert SAS — Certificado de Practitioner General en Cirugía de Pequeños Animales (ISVPS)"
+          }
+        ],
+        "knowsAbout": [
+          "Cirugía de tejidos blandos veterinaria",
+          "Cirugía laparoscópica veterinaria",
+          "Endoscopia veterinaria",
+          "Cirugía torácica veterinaria",
+          "Cirugía mínimamente invasiva en pequeños animales"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.neumannvet.es/#website",
+        "url": "https://www.neumannvet.es",
+        "name": "Carolina Neumann MVSc — Cirujana Veterinaria",
+        "inLanguage": "es",
+        "publisher": { "@id": "https://www.neumannvet.es/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.neumannvet.es/",
+        "url": "https://www.neumannvet.es/",
+        "name": "Carolina Neumann — Cirujana Veterinaria Freelance",
+        "isPartOf": { "@id": "https://www.neumannvet.es/#website" },
+        "about": { "@id": "https://www.neumannvet.es/#carolina" },
+        "inLanguage": "es"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 

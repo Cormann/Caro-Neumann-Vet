@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sobre Carolina Neumann — biografía profesional, formación, trayectoria clínica, publicaciones y membresías profesionales." />
+  <meta name="description" content="Conoce a Carolina Neumann, cirujana veterinaria freelance con formación avanzada en cirugía mínimamente invasiva. Credenciales MVSc y GPCert SAS, trayectoria clínica y afiliaciones profesionales." />
   <meta name="robots" content="index, follow" />
 
   <!-- Canonical & hreflang -->
@@ -29,6 +29,53 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": "https://www.neumannvet.es/references.html",
+        "url": "https://www.neumannvet.es/references.html",
+        "name": "Sobre mí y Referencias — Carolina Neumann MVSc",
+        "isPartOf": { "@id": "https://www.neumannvet.es/#website" },
+        "mainEntity": { "@id": "https://www.neumannvet.es/#carolina" },
+        "inLanguage": "es"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.neumannvet.es/#carolina",
+        "name": "Carolina Neumann",
+        "jobTitle": "Cirujana Veterinaria Freelance",
+        "description": "Cirujana veterinaria especializada en cirugía mínimamente invasiva, laparoscopia, endoscopia y cirugía de tejidos blandos en pequeños animales en Barcelona.",
+        "image": "https://www.neumannvet.es/img/carolina.jpg",
+        "email": "caneumann84@gmail.com",
+        "url": "https://www.neumannvet.es",
+        "worksFor": { "@id": "https://www.neumannvet.es/#organization" },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "MVSc — Máster en Ciencias Veterinarias"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certificate",
+            "name": "GPCert SAS — Certificado de Practitioner General en Cirugía de Pequeños Animales (ISVPS)"
+          }
+        ],
+        "memberOf": [
+          { "@type": "Organization", "name": "ISVPS — International School of Veterinary Postgraduate Studies" },
+          { "@type": "Organization", "name": "AVEPA — Asociación de Veterinarios Especialistas en Pequeños Animales" },
+          { "@type": "Organization", "name": "VESE — Veterinary Endoscopy Society of Europe" },
+          { "@type": "Organization", "name": "WSAVA — World Small Animal Veterinary Association" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
