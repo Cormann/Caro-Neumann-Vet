@@ -21,38 +21,58 @@ function getActiveLang() {
   return localStorage.getItem('siteLang') || 'es';
 }
 
-function setGoogTranslate(lang) {
-  // Clear GT cookie in all domain permutations GT might have used
-  ['', '; domain=' + location.hostname, '; domain=.' + location.hostname].forEach(function (d) {
-    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/' + d;
-    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None' + d;
+function clearGoogCookies() {
+  var expiry = 'expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  var h = location.hostname;
+  var root = h.replace(/^www\./, ''); // neumannvet.es when on www.neumannvet.es
+  // GT sets the cookie on the root domain — clear every permutation
+  [h, '.' + h, root, '.' + root, ''].forEach(function (d) {
+    var suffix = d ? '; domain=' + d : '';
+    document.cookie = 'googtrans=; ' + expiry + '; path=/' + suffix;
   });
+}
+
+function setGoogTranslate(lang) {
+  clearGoogCookies();
 
   if (lang !== 'es') {
-    const val = '/es/' + lang;
+    var val = '/es/' + lang;
+    var root = location.hostname.replace(/^www\./, '');
     document.cookie = 'googtrans=' + val + '; path=/';
-    document.cookie = 'googtrans=' + val + '; path=/; domain=.' + location.hostname;
+    document.cookie = 'googtrans=' + val + '; path=/; domain=.' + root;
   }
 
-  // localStorage is the authoritative source for the active button — not the GT cookie
   localStorage.setItem('siteLang', lang);
 }
 
 function markActiveLangBtn(lang) {
   document.querySelectorAll('.lang-btn').forEach(function (btn) {
-    const isActive = btn.dataset.lang === lang;
+    var isActive = btn.dataset.lang === lang;
     btn.classList.toggle('active', isActive);
     btn.setAttribute('aria-pressed', String(isActive));
   });
 }
 
 function initLangSwitcher() {
-  markActiveLangBtn(getActiveLang());
+  var lang = getActiveLang();
+  markActiveLangBtn(lang);
+
+  // If preference is Spanish, actively clear any lingering GT cookie and
+  // reset GT's own combo element in case it already translated the page
+  if (lang === 'es') {
+    clearGoogCookies();
+    setTimeout(function () {
+      var select = document.querySelector('select.goog-te-combo');
+      if (select && select.value) {
+        select.value = '';
+        select.dispatchEvent(new Event('change'));
+      }
+    }, 800);
+  }
 
   document.querySelectorAll('.lang-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      const lang = btn.dataset.lang;
-      setGoogTranslate(lang);
+      setGoogTranslate(btn.dataset.lang);
       location.reload();
     });
   });
