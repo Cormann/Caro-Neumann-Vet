@@ -17,23 +17,25 @@ window.googleTranslateElementInit = function () {
 };
 
 /* ── Language Switcher ────────────────────────────────────── */
-function getGoogCookieLang() {
-  const match = document.cookie.match(/(?:^|;)\s*googtrans=\/es\/([a-z]{2})/);
-  return match ? match[1] : 'es';
+function getActiveLang() {
+  return localStorage.getItem('siteLang') || 'es';
 }
 
 function setGoogTranslate(lang) {
-  // Clear old cookie first
-  const clearVal = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
-  document.cookie = clearVal;
-  document.cookie = clearVal + '; domain=' + location.hostname;
-  document.cookie = clearVal + '; domain=.' + location.hostname;
+  // Clear GT cookie in all domain permutations GT might have used
+  ['', '; domain=' + location.hostname, '; domain=.' + location.hostname].forEach(function (d) {
+    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/' + d;
+    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None' + d;
+  });
 
   if (lang !== 'es') {
     const val = '/es/' + lang;
     document.cookie = 'googtrans=' + val + '; path=/';
     document.cookie = 'googtrans=' + val + '; path=/; domain=.' + location.hostname;
   }
+
+  // localStorage is the authoritative source for the active button — not the GT cookie
+  localStorage.setItem('siteLang', lang);
 }
 
 function markActiveLangBtn(lang) {
@@ -45,8 +47,7 @@ function markActiveLangBtn(lang) {
 }
 
 function initLangSwitcher() {
-  const currentLang = getGoogCookieLang();
-  markActiveLangBtn(currentLang);
+  markActiveLangBtn(getActiveLang());
 
   document.querySelectorAll('.lang-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {
